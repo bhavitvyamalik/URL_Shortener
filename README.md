@@ -1,5 +1,8 @@
-#URL Shortner 
+<head>
+	<title>URL Shortner</title> 
+</head>
 
-##Elaborative description will be uploaded soon##
-
-Stay Tuned!
+<body>
+<h2>Elaborative description will be uploaded soon</h2>
+<h3>Stay Tuned!</h3>
+</body>
