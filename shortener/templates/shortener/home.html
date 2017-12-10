@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="cover-heading">{{ title }}</h1>
+    
+<p class="lead">
+     <div class='col-sm-20 col-sm-offset-4'> 
+                <form method='POST' action='.'> {% csrf_token %}
+                    <!-- <input name='url' type='text' placeholder='Shorten your URL like http://www.codingforentrepreneurs.com' /> -->
+                    {{ form.as_p }}
+                    <input class='btn btn-primary' type='submit' value='Shorten' >
+                </form>
+            </div>
+</p>
+
+
+{% endblock content %}

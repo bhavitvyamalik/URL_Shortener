@@ -1,6 +1,11 @@
 from django.conf import settings
 from django.db import models
+
+#from django.core.urlresolvers import reverse
+from django_hosts.resolvers import reverse
 from .utils import code_generator,create_shortcode
+from .validators import validate_url,validate_dot_com
+
 
 # Create your models here.
 
@@ -25,16 +30,14 @@ class fesURLManager(models.Manager):
 		return "New codes made: {i}".format(i=new_codes)
 
 class fesURL(models.Model):
-	url 		= models.CharField(max_length=220, )
+	url 		= models.CharField(max_length=220,validators=[validate_url,validate_dot_com])
 	shortcode	= models.CharField(max_length=SHORTCODE_MAX, unique=True, blank=True)
-	#updated	= models.DateTimeField(auto_now=True)
 	timestamp	= models.DateTimeField(auto_now_add=True)
 	active		= models.BooleanField(default=True)
 
 	
 	objects=fesURLManager()			# Linking
-	#some_random=fesURLManager()
-
+	
 	def save(self, *args, **kwargs):		#whenever you save, it automatically generates shortcode
 		if self.shortcode is None or self.shortcode=="":		#if we leave it blank, it'd automatically fill it
 			self.shortcode=create_shortcode(self)
@@ -45,3 +48,8 @@ class fesURL(models.Model):
 
 	def __unicode__(self):
 		return str(self.url)
+
+	def get_short_url(self):
+		url_path = reverse("scode", kwargs={'shortcode': self.shortcode}, host='www', scheme='http')
+		return url_path
+

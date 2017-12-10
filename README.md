@@ -1,8 +1,7 @@
 <body>
 
 <h1>URL Shortner</h1> 
-<br></br>
 <h2>Elaborative description will be uploaded soon</h2>
-<h3>Stay Tuned!</h3>
+<p>Stay Tuned!</p>
 
 </body>

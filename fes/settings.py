@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shortener',
     'django_hosts', #3rd Party
+    'analytics',
 ]
 
 MIDDLEWARE = [
@@ -56,12 +57,14 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'fes.urls'
 ROOT_HOSTCONF='fes.hosts'
 DEFAULT_HOST='www'
+
 DEFAULT_REDIRECT_URL="http://www.abcd.com:8000"
+PARENT_HOST="abcd.com:8000"
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

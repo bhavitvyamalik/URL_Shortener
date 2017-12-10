@@ -6,7 +6,7 @@ from django.conf import settings
 
 SHORTCODE_MIN=getattr(settings,"SHORTCODE_MIN",15)
 
-def code_generator(size=SHORTCODE_MIN, chars='string.ascii_lowercase+string.digits'):
+def code_generator(size=SHORTCODE_MIN, chars='abcdefghijklmnopqrstuvwxyz1234567890'):
 	new_code=''
 	for _ in range(size):
 		new_code+=random.choice(chars)
