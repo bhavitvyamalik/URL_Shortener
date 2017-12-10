@@ -41,6 +41,8 @@ class fesURL(models.Model):
 	def save(self, *args, **kwargs):		#whenever you save, it automatically generates shortcode
 		if self.shortcode is None or self.shortcode=="":		#if we leave it blank, it'd automatically fill it
 			self.shortcode=create_shortcode(self)
+			if not "http" in self.url:
+				self.url="http://"+self.url
 		super(fesURL,self).save(*args,**kwargs)
 
 	def __str__(self):

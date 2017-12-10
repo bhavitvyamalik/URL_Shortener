@@ -58,8 +58,8 @@ ROOT_URLCONF = 'fes.urls'
 ROOT_HOSTCONF='fes.hosts'
 DEFAULT_HOST='www'
 
-DEFAULT_REDIRECT_URL="http://www.abcd.com:8000"
-PARENT_HOST="abcd.com:8000"
+DEFAULT_REDIRECT_URL="http://www.abcd.com:5000"
+PARENT_HOST="abcd.com:5000"
 
 TEMPLATES = [
     {
